@@ -28,9 +28,12 @@ def asknames(c):
 # function that selects a singer from each section to be in the quartet
 def drawnames(c):
     quartet = []
-    for i in chorus.keys():
-        quartet.append(chorus[i][randrange(len(chorus[i]))])
+    for i in c.keys():
+        chosen = c[i][randrange(len(c[i]))]
+        quartet.append(chosen)
+        c[i].remove(chosen)
     print(quartet)
+    return c, quartet
 
 # run the program
 print('--------16 Chairs--------\n')
@@ -43,3 +46,9 @@ while True:
     drawnames(chorus)
     input('Press enter to generate another quartet.')
     
+# To implement:
+# reset button
+# Make it look and read nicely, i.e. get plural tenses correct, no weird list formatting
+# Import a chorus from an external file, be able to delete members
+# Create UI
+# choose a singer to be in a quartet with other random singers
